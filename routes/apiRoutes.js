@@ -35,4 +35,24 @@ router.post("/api/notes", (req, res) => {
     })
 })
 
+router.delete("/api/notes/:id", (req, res) => {
+    const noteID = req.params.id
+    fs.readFile("db/db.json", "utf8", (err, data) => {
+    if (err) {
+        console.err(err)
+    } else {
+        const dbNotes = JSON.parse(data)
+        for (let i = 0; i < dbNotes.length; i++) {
+            if (noteID === dbNotes [i].id) {
+                dbNotes.splice([i], 1)
+                fs.writeFile("db/db.json", JSON.stringify(dbNotes), (err) => {
+                    if (err) throw err;
+                    res.json(dbNotes)
+                })
+            }
+        }
+    }
+    })
+})
+
 module.exports = router;
