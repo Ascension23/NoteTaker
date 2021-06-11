@@ -10,7 +10,7 @@ router.get("/api/notes", (req, res) => {
             console.err(err)
         };
         console.log(data, "This is from get")
-        return res.json(data)
+        return res.json(JSON.parse(data))
     })
 })
 
@@ -19,7 +19,8 @@ router.post("/api/notes", (req, res) => {
         if (err) {
             console.err(err)
         } else {
-            const dbNotes = data
+            const dbNotes = JSON.parse(data)
+            console.log(dbNotes)
             const addNotes = {
                 title: req.body.title,
                 text: req.body.text,
@@ -34,4 +35,4 @@ router.post("/api/notes", (req, res) => {
     })
 })
 
-module.exports = router
+module.exports = router;
