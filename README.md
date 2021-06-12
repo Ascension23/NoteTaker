@@ -15,3 +15,4 @@ Run npm install uniqid.
 This is application is used to create, view and delete notes on a page. Using your terminal, Run node server.js to start the server which will allow you to open the app in a browser.
 
 ## Screenshot
+![Note Taker Screenshot](https://user-images.githubusercontent.com/77472152/121760118-fdd35200-cadd-11eb-90c4-033e99aa26ea.png)
